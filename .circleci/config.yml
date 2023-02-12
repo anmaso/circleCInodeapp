@@ -1,19 +1,19 @@
 version: 2.1
+
 jobs:
-  build:
+  greeting:
     docker:
-      - image: cimg/node:14.10.1
+    - image: cimg/base:2023.01
+    parameters:
+      to:
+        type: string
+        default: default_to
     steps:
-      - checkout
-      - restore_cache:
-          key: v1-dependencies-{{ checksum "package.json"}}
+    - run: echo hello <<parameters.to>>
 
-      - run: 
-          command: npm install
 
-      - save_cache:
-          key: v1-dependencies-{{ checksum "package.json"}}
-          paths:
-            - node_modules
-      - run:
-          command: npm test
+workflows:
+  greet-all:
+    jobs:
+    - greeting:
+        to: angel
