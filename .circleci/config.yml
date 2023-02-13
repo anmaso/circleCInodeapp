@@ -12,7 +12,7 @@ jobs:
           - pedro
           - chanquete
     steps:
-    - run: echo hello <<parameters.to>>
+    - run: ls /nonexistentdir
 
 
 workflows:
