@@ -6,8 +6,11 @@ jobs:
     - image: cimg/base:2023.01
     parameters:
       to:
-        type: string
-        default: default_to
+        type: enum
+        enum:
+          - angel
+          - pedro
+          - chanquete
     steps:
     - run: echo hello <<parameters.to>>
 
