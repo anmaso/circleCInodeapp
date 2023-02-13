@@ -20,6 +20,5 @@ workflows:
     jobs:
     - greeting:
         name: greeting job with path = $PATH
-        matrix:
-          parameters:
-            to: [angel, pedro, juan]
+        parameters:
+          to: angel
