@@ -19,6 +19,7 @@ workflows:
   greet-all:
     jobs:
     - greeting:
+        name: greeting job with path = $PATH
         matrix:
           parameters:
             to: [angel, pedro, juan]
