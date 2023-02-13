@@ -16,4 +16,6 @@ workflows:
   greet-all:
     jobs:
     - greeting:
-        to: angel
+        matrix:
+          parameters:
+            to: [angel, pedro, juan]
