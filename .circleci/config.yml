@@ -19,5 +19,5 @@ workflows:
   greet-all:
     jobs:
     - greeting:
-        name: greeting job with path = $PATH
+        name: greeting job with path = $CIRCLE_BRANCH
         to: angel
