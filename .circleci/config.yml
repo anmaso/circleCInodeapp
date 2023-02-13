@@ -20,5 +20,4 @@ workflows:
     jobs:
     - greeting:
         name: greeting job with path = $PATH
-        parameters:
-          to: angel
+        to: angel
