@@ -2,6 +2,9 @@ version: 2.1
 aliases:
   - &var1 value1
   - &var2 value2
+  - &arr
+     - arr_value1
+     - arr_value2
 
 jobs:
   greeting:
@@ -15,7 +18,9 @@ jobs:
           - var2
     steps:
     - run: echo <<parameters.var_name>>
-    - run: echo &<<parameters.var_name>>
+    - run: echo $ENV_VAR
+    environment:
+      - ENV_VAR: *arr
 
 
 workflows:
