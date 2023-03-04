@@ -1,18 +1,21 @@
 version: 2.1
+aliases:
+  - &var1 value1
+  - &var2 value2
 
 jobs:
   greeting:
     docker:
     - image: cimg/base:2023.01
     parameters:
-      to:
+      var_name:
         type: enum
         enum:
-          - angel
-          - pedro
-          - chanquete
+          - var1
+          - var2
     steps:
-    - run: ls /nonexistentdir
+    - run: echo <<parameters.var_name>>
+    - run: echo &<<parameters.var_name>>
 
 
 workflows:
@@ -20,4 +23,4 @@ workflows:
     jobs:
     - greeting:
         name: greeting job with path = $CIRCLE_BRANCH
-        to: angel
+        var_name: var1
