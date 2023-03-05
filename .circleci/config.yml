@@ -12,7 +12,8 @@ jobs:
           app-dir: .circleci/dynamic
       - run:
           name: Generate config
-          command: node .circleci/dynamic/index.js
+          #command: node .circleci/dynamic/index.js
+          command: npm start --prefix .circleci/dynamic
       - continuation/continue:
           configuration_path: ./dynamicConfig.yml
 workflows:
