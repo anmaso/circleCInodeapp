@@ -1,3 +1,3 @@
-import writeNodeConfig from './write-config';
+let writeNodeConfig = require( './write-config');
 
 writeNodeConfig("v.*", "../dynamicConfig.yml")

@@ -29,7 +29,7 @@ nodeWorkflow.jobs.push(wfDeployJob);
 /**
 * Exports a CircleCI config for a node project
 */
-export default function writeNodeConfig(deployTag, configPath) {
+module.exports= function writeNodeConfig(deployTag, configPath) {
   wfDeployJob.parameters.filters.tags = {only: deployTag};
   fs.writeFile(configPath, nodeConfig.generate(), (err) => {
     if (err) {
