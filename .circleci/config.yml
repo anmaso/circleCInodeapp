@@ -18,8 +18,10 @@ jobs:
           configuration_path: ./dynamicConfig.yml
           
   test-containers-job:
+    resource_class: small
     docker: 
       - image: cimg/base:stable
+    
     steps:
       - checkout
       - setup_remote_docker:
