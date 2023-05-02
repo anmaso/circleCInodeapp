@@ -16,9 +16,12 @@ jobs:
           command: npm start --prefix .circleci/dynamic
       - continuation/continue:
           configuration_path: ./dynamicConfig.yml
+          
   test-containers-job:
-    docker: cimg/base
+    docker: 
+      - image: cimg/base:stable
     steps:
+      - checkout
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
