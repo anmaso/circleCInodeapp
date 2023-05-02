@@ -27,9 +27,9 @@ jobs:
       - run:
           command: find /
 workflows:
-  dynamic-workflow:
-    jobs:
-      - generate-config
+  #dynamic-workflow:
+  #  jobs:
+  #    - generate-config
   test-containers:
     jobs:
       - test-containers-job
