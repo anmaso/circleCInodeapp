@@ -28,10 +28,26 @@ jobs:
           docker_layer_caching: true
       - run:
           command: find /
+  echo_params:
+    docker: 
+      - image: cimg/base:stable
+    parameters:
+      param1:
+        type: string
+      param2:
+        type: string
+    steps:
+      - run:
+          command: echo "p1" <<parameters.param1 >> "p2" <<parameters.param2>>
 workflows:
   #dynamic-workflow:
   #  jobs:
   #    - generate-config
   test-containers:
     jobs:
-      - test-containers-job
+      # - test-containers-job
+      - echo_params:
+          matrix:
+            parameters:
+              param1: ["p1-1", "p1-2", "p1-3"]
+          param2: << parameters.param1 >>
